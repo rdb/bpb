@@ -17,6 +17,8 @@
 
 #include "bpbObjectData.h"
 
+#include "geom.h"
+
 ////////////////////////////////////////////////////////////////////
 //       Class : BPBMesh
 // Description : This is the implementation of BPB_object_data.
@@ -29,6 +31,8 @@ public:
   virtual void update_node(PandaNode *node, DNA_ID *dna_id);
 
 private:
+  COWPT(Geom) _geom;
+
   typedef set<BPBObject*> Objects;
   Objects _objects;
 };

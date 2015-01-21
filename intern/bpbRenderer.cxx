@@ -22,5 +22,6 @@
 //  Description:
 ////////////////////////////////////////////////////////////////////
 BPBRenderer::
-BPBRenderer() : _engine(new GraphicsEngine) {
+BPBRenderer(int flags) : _flags(flags) {
+  GraphicsEngine::local_object();
 }

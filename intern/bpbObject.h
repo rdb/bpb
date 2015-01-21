@@ -27,10 +27,12 @@ public:
   INLINE BPBObject(BPBContext *ctx) : BPBID(ctx) {};
 
   INLINE BPBObjectData *get_data() const;
-  INLINE void set_data(BPBObjectData *data);
+  void set_data(BPBObjectData *data);
 
   INLINE BPBObject *get_parent() const;
   void set_parent(BPBObject *parent);
+
+  PandaNode *get_node();
 
   virtual void update(DNA_ID *dna_id);
 

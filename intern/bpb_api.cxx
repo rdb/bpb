@@ -75,6 +75,28 @@ void BPB_object_destroy(BPB_object *obj) {
   delete obj;
 }
 
+BPB_object_data *
+BPB_new_object_data(BPB_context *ctx, short type) {
+  nassertr(ctx != NULL, NULL);
+
+  BPBMesh *object_data = new BPBMesh(ctx);
+  return object_data;
+}
+
+BPB_context *
+BPB_object_data_get_context(BPB_object_data *obj) {
+  nassertr(BPBID::validate(obj), NULL);
+  return obj->get_context();
+}
+
+void
+BPB_object_data_update(BPB_object_data *obj, DNA_ID *dna_id) {
+  nassertv(BPBID::validate(obj));
+
+  obj->update((DNA_ID *)dna_id);
+}
+
+
 BPB_renderer *
 BPB_new_renderer(BPB_render_type type, int flags) {
   switch (type) {
@@ -92,8 +114,10 @@ BPB_new_renderer(BPB_render_type type, int flags) {
 
 void BPB_renderer_start(BPB_renderer *renderer, BPB_render_desc *desc) {
   nassertv(renderer != NULL);
+  nassertv(desc != NULL);
 
-  renderer->start(desc);
+  const BPB_render_desc &desc2 = *desc;
+  renderer->start(*desc);
 }
 
 void BPB_renderer_finish(BPB_renderer *renderer) {

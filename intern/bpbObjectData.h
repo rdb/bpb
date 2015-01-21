@@ -33,6 +33,8 @@ public:
 private:
   typedef set<BPBObject*> Objects;
   Objects _objects;
+
+  friend struct BPBObject;
 };
 
 #endif

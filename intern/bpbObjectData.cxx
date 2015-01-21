@@ -49,7 +49,7 @@ update(DNA_ID *dna_id) {
   // on the node instead.
   Objects::iterator it;
   for (it = _objects.begin(); it != _objects.end(); ++it) {
-    //update_node((*it)->get_node(), dna_id);
+    update_node((*it)->get_node(), dna_id);
   }
 }
 

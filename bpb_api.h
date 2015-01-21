@@ -104,12 +104,21 @@ enum BPB_render_type {
 };
 
 struct BPB_render_desc {
+  /* The viewpoint from which the scene is to be rendered. */
   BPB_object *camera;
-  //BPB_world *world;
-  int viewport_x;
-  int viewport_y;
-  int viewport_width;
-  int viewport_height;
+  BPB_object *world;
+
+  /* Total size of the window or render area.  This is *not* the size
+     of the desired render output. */
+  int width, height;
+
+  /* The dimensions of the region that needs to be rendered. */
+  int region_x;
+  int region_y;
+  int region_width;
+  int region_height;
+
+  /* If non-NULL, the filename to write the result to. */
   char *file_name;
 };
 

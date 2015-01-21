@@ -2,10 +2,10 @@
 bl_info = {
     "name": "Panda3D (BPB)",
     "author": "rdb",
-    "blender": (2, 70, 0),
+    "blender": (2, 69, 0),
     "location": "",
     "description": "Blender->Panda3D bridge",
-    "warning": "",
+    "warning": "Work in progress, not yet functional",
     "wiki_url": "",
     "tracker_url": "",
     "support": "",

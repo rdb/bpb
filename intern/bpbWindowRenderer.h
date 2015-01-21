@@ -26,7 +26,7 @@ public:
   BPBWindowRenderer(int flags);
 
 public:
-  virtual void start(const BPB_render_desc *desc);
+  virtual void start(const BPB_render_desc &desc);
   virtual void finish();
 
 protected:

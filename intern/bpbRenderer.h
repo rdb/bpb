@@ -17,24 +17,24 @@
 
 #include "bpb_api.h"
 
-class GraphicsEngine;
+#include "graphicsEngine.h"
 
 ////////////////////////////////////////////////////////////////////
 //       Class : BPBRenderer
 // Description : This is the base class for all of the renderer
 //               classes.
 ////////////////////////////////////////////////////////////////////
-struct BPBRenderer {
+struct BPBRenderer : public GraphicsEngine {
 protected:
-  BPBRenderer();
+  BPBRenderer(int flags);
   virtual ~BPBRenderer() {};
 
 public:
-  virtual void start(const BPB_render_desc *desc)=0;
+  virtual void start(const BPB_render_desc &desc)=0;
   virtual void finish()=0;
 
 protected:
-  PT(GraphicsEngine) _engine;
+  int _flags;
 };
 
 #endif

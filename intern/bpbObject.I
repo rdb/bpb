@@ -24,16 +24,6 @@ get_data() const {
 }
 
 ////////////////////////////////////////////////////////////////////
-//     Function: BPBObject::set_data
-//       Access: Public
-//  Description: Changes the data block associated with this object.
-////////////////////////////////////////////////////////////////////
-INLINE void BPBObject::
-set_data(BPBObjectData *data) {
-  _data = data;
-}
-
-////////////////////////////////////////////////////////////////////
 //     Function: BPBObject::get_parent
 //       Access: Public
 //  Description: Returns the parent object, or NULL if there is none.

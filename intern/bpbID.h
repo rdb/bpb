@@ -34,7 +34,7 @@ public:
 
   virtual void update(DNA_ID *dna_id);
 
-private:
+protected:
   BPBContext *_context;
   string _name;
   union {

@@ -13,6 +13,26 @@
 ////////////////////////////////////////////////////////////////////
 
 #include "bpbObject.h"
+#include "bpbObjectData.h"
+
+////////////////////////////////////////////////////////////////////
+//     Function: BPBObject::set_data
+//       Access: Public
+//  Description: Changes the data block associated with this object.
+////////////////////////////////////////////////////////////////////
+void BPBObject::
+set_data(BPBObjectData *data) {
+  if (data == _data) {
+    return;
+  }
+  if (_data != NULL) {
+    //_data->_objects.erase(this);
+  }
+  if (data != NULL) {
+    data->_objects.insert(this);
+  }
+  _data = data;
+}
 
 ////////////////////////////////////////////////////////////////////
 //     Function: BPBObject::set_parent
@@ -22,6 +42,24 @@
 INLINE void BPBObject::
 set_parent(BPBObject *parent) {
   _parent = parent;
+}
+
+////////////////////////////////////////////////////////////////////
+//     Function: BPBObject::get_node
+//       Access: Public
+//  Description: Returns a PandaNode for this object.
+////////////////////////////////////////////////////////////////////
+PandaNode *BPBObject::
+get_node() {
+  //TODO
+  if (_node == NULL) {
+    if (_type == MAKE_ID2('M', 'E')) {
+      _node = new GeomNode(_name);
+    } else {
+      _node = new PandaNode(_name);
+    }
+  }
+  return _node;
 }
 
 ////////////////////////////////////////////////////////////////////
